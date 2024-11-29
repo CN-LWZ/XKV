@@ -37,33 +37,28 @@ pip install -r requirements.txt
 ```
 sh run_xkv_demo.sh
 ```
-```bash
+```
+model_path=$1 #Your local model path. such as "mymodel/Meta-Llama-3-8B-Instruct"
+total_size=$2 #Total KV cache size for all layers. Such as 4000,8000.
+set_value=$3 #Set value for average importance retention ratio.Such as 0.9,0.85.
+sampling=$4 #Sampling ratio. Such as 0.1,0.2.
 
-### 2.3 Graph Input Format&&get binary file
-We can read the adjacency list and generate the corresponding binary file.
+python xkv_demo.py \
+    --model_path ${model_path} \
+    --total_size ${total_size} \
+    --set_value ${set_value} \
+    --sampling ${sampling} 
 ```
-src1   dst1:dst2
-src2   dst3:dst4:dst5
+- `model_path` is your local model path. Such as "mymodel/Meta-Llama-3-8B-Instruct"
+- `total_size` is the first constraint condition, representing total KV cache size of all layers
+- `set_value` is the second constraint condition, representing average importance retention ratio
+- `sampling` is sampling ratio
+- When using one of the constraint conditions, please set the other constraint condition to 0. Both `total_size` and `set_value` cannot be 0 at the same time, nor can they be non-zero at the same time
+  
+### 2.3 Evaluate XKV inference
 ```
-Run
+sh run_xkv_eval.sh
 ```
-../bin/convert2binary input_file_path  dataset_path
 
-```
-out: vlist.bin  elist.bin wlist.bin(int) flight.bin(float)
-### 2.4 C-2graph-pri
-Run
-```
-../bin/purn-sssp dataset_path
-
-```
-### 2.5 C-2graph-P
-Run and compare the results
-```
-../bin/sssp-base dataset_path source
-../bin/sssp-purn dataset_path source
-```
-### 2.6 C-2graph-PM
-example
 ## 3. Contact  
-If you encounter any problem with LRCNN, please feel free to contact lihuaibei7951@stu.ouc.edu.cn.
+If you encounter any problem, please feel free to contact lwzzzz@foxmail.com.
