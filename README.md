@@ -25,7 +25,7 @@ This paper observes that the layer-specific cached data have very different impa
 
 Before running it, some softwares must be installed, which is beyond the scope of this document. 
 ### 2.1 Requirements
-This project is run under flash-attn==2.6. Please manually install the corresponding FlashAttention version according to your own CUDA version and PyTorch version.
+This project is run under flash-attn==2.6 and python==3.10. Please manually install the corresponding FlashAttention version according to your own CUDA version and PyTorch version.
 
 After that:
 ```
