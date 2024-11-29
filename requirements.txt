@@ -7,4 +7,3 @@ accelerate
 jieba
 fuzzywuzzy
 rouge
-collections
