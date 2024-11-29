@@ -1,7 +1,5 @@
 transformers==4.45.2
 torch==2.4.1
-json
-random
 argparse
 numpy
 tqdm
