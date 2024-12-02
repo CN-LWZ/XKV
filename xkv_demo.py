@@ -9,7 +9,6 @@ from xkv.generate_xkv import generate,sample
 import numpy as np
 from tqdm import tqdm
 import torch
-import matplotlib.pyplot as plt
 import transformers
 from xkv.llama_model_xkv import LlamaForCausalLM
 from transformers import AutoTokenizer
